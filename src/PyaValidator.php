@@ -49,6 +49,14 @@ class PyaValidator
 					$this->_validate($requirement, $target, 'Array');
 				}
 			} else {
+				if (
+					isset($requirement['required'])
+					and false === $requirement['required']
+					and !isset($targets[$key])
+				) {
+					// フィールドのセット無しが許可されている場合はスルー
+					continue;
+				}
 				$this->_validate($requirement, $targets[$key], $key);
 			}
 		}
