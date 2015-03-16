@@ -6,6 +6,9 @@ interface ValidationInterface
 {
 	/**
 	 * バリデーションを実行する
+	 *
+	 * @param [] $requirement
+	 * @param mixed $target
 	 */
-	public function validate();
+	public static function validate($requirement, $target);
 }

@@ -7,7 +7,7 @@ class StringValidation implements ValidationInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function validate()
+	public static function validate($requirement, $target)
 	{
 	}
 }

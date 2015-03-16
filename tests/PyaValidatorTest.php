@@ -3,6 +3,7 @@
 namespace Vol2223\PyaValidator;
 
 use \Mockery as M;
+use Vol2223\PayValidator\Exception\ArrayValidationException;
 
 class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,6 +45,11 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 					0 => 'HOGE',
 					1 => 'PIYO'
 				]
+			],
+			'required' =>
+			[
+				'type' => 'integer',
+				'required' => false
 			]
 		];
 		$object = new \stdClass;
@@ -56,6 +62,28 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 				1,2,3
 			],
 			'enum' => 'HOGE'
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\EnumValidationException
+	 */
+	public function test_validate_MissMatchEnumList()
+	{
+		$config = [
+			'enum' =>
+			[
+				'type' => 'enum',
+				'enum' => [
+					0 => 'HOGE',
+					1 => 'PIYO'
+				]
+			]
+		];
+		$targets = [
+			'enum' => 'GEGE'
 		];
 		$pyaValidator = new PyaValidator($config, $targets);
 		$pyaValidator->validate();
