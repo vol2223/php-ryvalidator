@@ -88,4 +88,157 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$pyaValidator = new PyaValidator($config, $targets);
 		$pyaValidator->validate();
 	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:定義外のタイプでした。key=error,type=hogehogehoge
+	 */
+	public function test_validate_MissingType()
+	{
+		$config = [
+			'error' =>
+			[
+				'type' => 'hogehogehoge'
+			]
+		];
+		$targets = [
+			'error' => 'GEGE'
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Stringではありません。key=string,value=1
+	 */
+	public function test_validate_StringMissMatchParam()
+	{
+		$config = [
+			'string' =>
+			[
+				'type' => 'string'
+			]
+		];
+		$targets = [
+			'string' => 1
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Integerではありません。key=integer,value=hoge
+	 */
+	public function test_validate_IntegerMissMatchParam()
+	{
+		$config = [
+			'integer' =>
+			[
+				'type' => 'integer'
+			]
+		];
+		$targets = [
+			'integer' => 'hoge'
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Enumではありません。key=enum,value=1
+	 */
+	public function test_validate_EnumArrayMissMatchParam()
+	{
+		$config = [
+			'enum' =>
+			[
+				'type' => 'enum',
+				'enum' => [
+					0 => 'HOGE',
+					1 => 'PIYO'
+				]
+			],
+		];
+		$targets = [
+			'enum' =>[1] 
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Enumではありません。key=enum,value=2
+	 */
+	public function test_validate_EnumObjectMissMatchParam()
+	{
+		$config = [
+			'enum' =>
+			[
+				'type' => 'enum',
+				'enum' => [
+					0 => 'HOGE',
+					1 => 'PIYO'
+				]
+			],
+		];
+		$object = new \stdClass();
+		$object->hoge = 2;
+		$targets = [
+			'enum' => $object
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Objectではありません。key=object,value=2
+	 */
+	public function test_validate_ObjectMissMatchParam()
+	{
+		$config = [
+			'object' =>
+			[
+				'type' => 'object',
+				'properties' => [
+					'hoge' => [
+						'type' => 'integer'
+					]
+				]
+			],
+		];
+		$targets = [
+			'object' => 2
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
+
+	/**
+	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedExceptionMessage validationのチェック:Arrayではありません。key=array,value=2
+	 */
+	public function test_validate_ArrayMissMatchParam()
+	{
+		$config = [
+			'array' =>
+			[
+				'type' => 'array',
+				'items' => [
+					0 => [
+						'type' => 'integer'
+					]
+				]
+			],
+		];
+		$targets = [
+			'array' => 2
+		];
+		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator->validate();
+	}
 }

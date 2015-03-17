@@ -90,7 +90,7 @@ class PyaValidator
 			break;
 		default:
 			throw new ValidationException(
-				sprintf('validationのチェック 定義外のタイプでした。key=%s,type=%s',$key, $requirement['type'])
+				sprintf('validationのチェック:定義外のタイプでした。key=%s,type=%s',$logKey, $requirement['type'])
 			);
 		}
 	}
@@ -108,7 +108,7 @@ class PyaValidator
 	{
 		if (!is_string($target)) {
 			throw new ValidationException(
-				sprintf('validationのチェック Stringではありません。key=%s,value=%s',$logKey, $target)
+				sprintf('validationのチェック:Stringではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
 		StringValidation::validate($requirement, $target);
@@ -127,7 +127,7 @@ class PyaValidator
 	{
 		if (!is_int($target)) {
 			throw new ValidationException(
-				sprintf('validationのチェック Integerではありません。key=%s,value=%s',$logKey, $target)
+				sprintf('validationのチェック:Integerではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
 		IntegerValidation::validate($requirement, $target);
@@ -146,7 +146,7 @@ class PyaValidator
 	{
 		if (is_array($target) or is_object($target)) {
 			throw new ValidationException(
-				sprintf('validationのチェック Enumではありません。key=%s,value=%s',$logKey, $target)
+				sprintf('validationのチェック:Enumではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
 		EnumValidation::validate($requirement, $target);
@@ -165,7 +165,7 @@ class PyaValidator
 	{
 		if (!is_object($target)) {
 			throw new ValidationException(
-				sprintf('validationのチェック Objectではありません。key=%s,value=%s',$logKey, $target)
+				sprintf('validationのチェック:Objectではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
 		$this->validate($requirement['properties'], (array)$target);
@@ -184,7 +184,7 @@ class PyaValidator
 	{
 		if (!is_array($targets)) {
 			throw new ValidationException(
-				sprintf('validationのチェック Arrayではありません。key=%s,value=%s',$logKey, $target)
+				sprintf('validationのチェック:Arrayではありません。key=%s,value=%s',$logKey, implode(',', (array)$targets))
 			);
 		}
 		try {
