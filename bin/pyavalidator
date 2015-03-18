@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use Vol2223\PyaValidator\ContractParser;
+
+$autoloadPaths = [__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'];
+foreach ($autoloadPaths as $file) {
+	if (file_exists($file)) {
+		require $file;
+		break;
+	}
+}
+
+$basePath = $argv[1];
+$yamlName = $argv[2];
+
+$contractParser = new ContractParser();
+$contractParser->parse($basePath, $yamlName);
