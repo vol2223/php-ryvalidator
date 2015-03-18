@@ -98,7 +98,7 @@ class ContractParser
 			}
 			if ($targetIterator->hasChildren()) {
 				if($targetIterator->getChildren()->offsetExists('is')) {
-					$targetIterator->offsetSet(
+					$beforeTargetIterator->offsetSet(
 						$targetIterator->key(),
 						$this->includes[$targetIterator->getChildren()->offsetGet('is')]
 					);
@@ -106,7 +106,7 @@ class ContractParser
 				if (is_null($beforeTargetIterator)) {
 					$this->searchInclude($targetIterator->getChildren(), $targetIterator);
 				} else {
-					$beforeTargetIterator->offsetSet(
+					$targetIterator->offsetSet(
 						$beforeTargetIterator->key(),
 						$this->searchInclude($targetIterator->getChildren(), $targetIterator)->getArrayCopy()
 					);
