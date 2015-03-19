@@ -3,35 +3,32 @@
 namespace Vol2223\PyaValidator;
 
 use Symfony\Component\Yaml\Parser;
+use Vol2223\PyaValidator\Context\ContractContext;
 
 class ContractParser
 {
-	const YAML_DIRECTORY = 'definitions';
+	const DEFINITIONS_DIRECTORY = 'definitions';
+	const VALIDATIONS_DIRECTORY = 'validations';
+	const INCLUDES_ACCESS_KEY = 'includes';
+	const METHOD_GET = 'get';
+	const METHOD_POST = 'post';
+	const REQUEST_TYPE_REQUEST = 'requests';
+	const REQUEST_TYPE_RESPONSE = 'responses';
+
+	private static $METHODS = [
+		self::METHOD_GET,
+		self::METHOD_POST
+	];
+
+	private static $REQUESTS = [
+		self::REQUEST_TYPE_REQUEST,
+		self::REQUEST_TYPE_RESPONSE
+	];
 
 	/**
 	 * @var yaml \Symfony\Component\Yaml\Parser
 	 */
 	private $parser;
-
-	/**
-	 * @var []
-	 */
-	private $requestByGet;
-
-	/**
-	 * @var []
-	 */
-	private $requestByPost;
-
-	/**
-	 * @var []
-	 */
-	private $responsesByGet;
-
-	/**
-	 * @var []
-	 */
-	private $responsesByPost;
 
 	public function __construct()
 	{
@@ -44,24 +41,24 @@ class ContractParser
 	 * @param string $basePath
 	 * @param string $yamlName
 	 */
-	public function parse($basePath, $yamlName)
+	public function parse($fileName, $basePath, $yamlName)
 	{
 		$this->load($basePath, $yamlName);
-		file_put_contents('test.txt', var_export($this->targetIterator->getArrayCopy(), true));
-//		foreach ($this->load($basePath, $yamlName) as $key => $target) {
-//			if (isset($target['post']['request'])) {
-//				return $this->requestByPost[$key] = $target['post']['request'];
-//			}
-//			if (isset($target['post']['responses'])) {
-//				return $this->responsesByPost[$key] = $target['post']['responses'];
-//			}
-//			if (isset($target['get']['request'])) {
-//				return $this->requestByGet[$key] = $target['get']['request'];
-//			}
-//			if (isset($target['get']['responses'])) {
-//				return $this->responsesByGet[$key] = $target['get']['responses'];
-//			}
-//		}
+		$contracts = [];
+		foreach ($this->targetIterator as $action => $methods) {
+			foreach ($methods as $methodType => $requests) {
+				if (!in_array($methodType, static::$METHODS)) {
+					continue;
+				}
+				foreach ($requests as $requestType => $request) {
+					if (!in_array($requestType, static::$REQUESTS)) {
+						continue;
+					}
+					$contracts[] = new ContractContext($fileName, $action, $methodType, $requestType, $request);
+				}
+			}
+		}
+		return $contracts;
 	}
 
 	/**
@@ -72,48 +69,60 @@ class ContractParser
 	 */
 	private function load($basePath, $yamlName)
 	{
-		$basePath = $basePath . '/' . self::YAML_DIRECTORY . '/';
+		$basePath = $basePath . '/' . self::DEFINITIONS_DIRECTORY . '/';
 		$value = $this->parser->parse(file_get_contents($basePath . $yamlName));
 		$includes = [];
-		if (isset($value['includes'])) {
-			foreach ($value['includes'] as $include) {
+		if (isset($value[self::INCLUDES_ACCESS_KEY])) {
+			foreach ($value[self::INCLUDES_ACCESS_KEY] as $include) {
 				foreach ($this->parser->parse(file_get_contents($basePath . $include)) as $key => $includeContract) {
 					$includes[$key] = $includeContract;
 				}
 			}
-			unset($value['includes']);
+			unset($value[self::INCLUDES_ACCESS_KEY]);
 		}
 
 		$this->includes = $includes;
-		$this->targetIterator = new \RecursiveArrayIterator($value);
+		$this->targetIterator = $value;
+		$this->unsetDescription($this->targetIterator);
 		$this->searchInclude($this->targetIterator);
 	}
 
-	private function searchInclude(\RecursiveArrayIterator $targetIterator, \RecursiveArrayIterator $beforeTargetIterator = null)
+	/**
+	 * include定義を付与する
+	 *
+	 * @param [] &$targetIterator
+	 * @param [] &$ancestor
+	 * @param string $keyOfParent
+	 */
+	private function searchInclude(Array &$targetIterator, Array &$ancestor = null, $keyOfParent = null)
 	{
-		while(true) {
-			$current = $targetIterator->current();
-			if (is_null($current)) {
-				break;
-			}
-			if ($targetIterator->hasChildren()) {
-				if($targetIterator->getChildren()->offsetExists('is')) {
-					$beforeTargetIterator->offsetSet(
-						$targetIterator->key(),
-						$this->includes[$targetIterator->getChildren()->offsetGet('is')]
-					);
-				}
-				if (is_null($beforeTargetIterator)) {
-					$this->searchInclude($targetIterator->getChildren(), $targetIterator);
-				} else {
-					$targetIterator->offsetSet(
-						$beforeTargetIterator->key(),
-						$this->searchInclude($targetIterator->getChildren(), $targetIterator)->getArrayCopy()
-					);
-				}
-			}
-			$targetIterator->next();
+		$isKey = array_key_exists('is', $targetIterator);
+		if ($isKey) {
+			$ancestor[$keyOfParent] = $this->includes[$targetIterator['is']];
 		}
-		return $targetIterator;
+		foreach(array_keys($targetIterator) as $i){
+			if(is_array($targetIterator[$i])) {
+				$this->searchInclude($targetIterator[$i], $targetIterator, $i);
+			}
+		}
+	}
+
+	/**
+	 * descriptionを消す
+	 *
+	 * @param [] &$targetIterator
+	 */
+	private function unsetDescription(&$targetIterator)
+	{
+		$isKey = array_key_exists('description', $targetIterator);
+		if ($isKey) {
+			unset($targetIterator['description']);
+		}
+
+		foreach(array_keys($targetIterator) as $i){
+			if(is_array($targetIterator[$i])) {
+				$this->unsetDescription($targetIterator[$i]);
+			}
+		}
 	}
 }

@@ -15,4 +15,11 @@ $basePath = $argv[1];
 $yamlName = $argv[2];
 
 $contractParser = new ContractParser();
-$contractParser->parse($basePath, $yamlName);
+$contracts = $contractParser->parse(basename($yamlName, '.yml'), $basePath, $yamlName);
+foreach ($contracts as $contract) {
+	$pathParts = pathinfo($basePath . '/' . $contract->filePath());
+	if (!is_dir($pathParts['dirname'])) {
+		mkdir($pathParts['dirname'], 0777, true);
+	}
+	file_put_contents($basePath . '/' . $contract->filePath(), $contract->body());
+}
