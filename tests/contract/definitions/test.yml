@@ -1,0 +1,26 @@
+includes:
+  - includes/includeTest.yml
+
+access1:
+  post:
+    description: |
+        access1のテスト
+    requests:
+      request1:
+        type: integer
+        required: false
+    responses:
+      responses1:
+        is: test
+
+access2:
+  post:
+    description: |
+        access2のテスト
+    requests:
+      request2:
+        type: integer
+        required: false
+    responses:
+      responses2:
+        type: boolean
