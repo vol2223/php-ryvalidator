@@ -1,8 +1,8 @@
 <?php
 
-namespace Vol2223\PyaValidator\Context;
+namespace Vol2223\Ryvalidator\Context;
 
-use Vol2223\PyaValidator\ContractParser;
+use Vol2223\Ryvalidator\ContractParser;
 
 class ContractContext
 {

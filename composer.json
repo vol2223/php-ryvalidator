@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Vol2223\\PyaValidator\\": "src/"
+      "Vol2223\\Ryvalidator\\": "src/"
     }
   },
   "bin": [
@@ -20,7 +20,7 @@
   ],
   "autoload-dev": {
     "psr-4": {
-      "Vol2223\\PyaValidator\\": "tests/"
+      "Vol2223\\Ryvalidator\\": "tests/"
     }
   }
 }

@@ -1,5 +1,5 @@
 <?php
 
-namespace Vol2223\PyaValidator\Exception;
+namespace Vol2223\Ryvalidator\Exception;
 
 class ValidationException extends \Exception {}

@@ -1,14 +1,14 @@
 <?php
 
-namespace Vol2223\PyaValidator;
+namespace Vol2223\Ryvalidator;
 
-use Vol2223\PyaValidator\Exception\ValidationException;
-use Vol2223\PyaValidator\Exception\ArrayValidationException;
-use Vol2223\PyaValidator\Validation\IntegerValidation;
-use Vol2223\PyaValidator\Validation\StringValidation;
-use Vol2223\PyaValidator\Validation\EnumValidation;
+use Vol2223\Ryvalidator\Exception\ValidationException;
+use Vol2223\Ryvalidator\Exception\ArrayValidationException;
+use Vol2223\Ryvalidator\Validation\IntegerValidation;
+use Vol2223\Ryvalidator\Validation\StringValidation;
+use Vol2223\Ryvalidator\Validation\EnumValidation;
 
-class PyaValidator
+class Ryvalidator
 {
 	/**
 	 * @var [] バリデーション設定の配列

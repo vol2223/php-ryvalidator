@@ -1,9 +1,9 @@
 <?php
 
-namespace Vol2223\PyaValidator;
+namespace Vol2223\Ryvalidator;
 
 use Symfony\Component\Yaml\Parser;
-use Vol2223\PyaValidator\Context\ContractContext;
+use Vol2223\Ryvalidator\Context\ContractContext;
 
 class ContractParser
 {

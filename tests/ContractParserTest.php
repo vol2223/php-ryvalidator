@@ -1,6 +1,6 @@
 <?php
 
-namespace Vol2223\PyaValidator;
+namespace Vol2223\Ryvalidator;
 
 class ContractParserTest extends \PHPUnit_Framework_TestCase
 {

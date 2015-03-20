@@ -1,8 +1,8 @@
 <?php
 
-namespace Vol2223\PyaValidator\Validation;
+namespace Vol2223\Ryvalidator\Validation;
 
-use Vol2223\PyaValidator\Exception\EnumValidationException;
+use Vol2223\Ryvalidator\Exception\EnumValidationException;
 
 class EnumValidation implements ValidationInterface
 {

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1426824856">
+  <project timestamp="1426824856">
+    <package name="Vol2223\Ryvalidator\Context">
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Context/ContractContext.php">
+        <class name="ContractContext" namespace="Vol2223\Ryvalidator\Context">
+          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
+        </class>
+        <line num="41" type="method" name="__construct" crap="1" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="55" type="method" name="filePath" crap="1" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="74" type="method" name="body" crap="1" count="1"/>
+        <line num="81" type="stmt" count="1"/>
+        <line num="82" type="stmt" count="1"/>
+        <line num="83" type="stmt" count="1"/>
+        <metrics loc="85" ncloc="53" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="18" elements="21" coveredelements="21"/>
+      </file>
+    </package>
+    <package name="Vol2223\Ryvalidator">
+      <file name="/home/vagrant/repos/php-yaml-validator/src/ContractParser.php">
+        <class name="ContractParser" namespace="Vol2223\Ryvalidator">
+          <metrics methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="50" elements="57" coveredelements="54"/>
+        </class>
+        <line num="44" type="method" name="__construct" crap="1" count="1"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="55" type="method" name="parse" crap="6.10" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="71" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="81" type="method" name="load" crap="4" count="1"/>
+        <line num="83" type="stmt" count="1"/>
+        <line num="84" type="stmt" count="1"/>
+        <line num="85" type="stmt" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="90" type="stmt" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="92" type="stmt" count="1"/>
+        <line num="93" type="stmt" count="1"/>
+        <line num="95" type="stmt" count="1"/>
+        <line num="96" type="stmt" count="1"/>
+        <line num="97" type="stmt" count="1"/>
+        <line num="98" type="stmt" count="1"/>
+        <line num="99" type="stmt" count="1"/>
+        <line num="108" type="method" name="searchInclude" crap="4" count="1"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="111" type="stmt" count="1"/>
+        <line num="112" type="stmt" count="1"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="116" type="stmt" count="1"/>
+        <line num="117" type="stmt" count="1"/>
+        <line num="118" type="stmt" count="1"/>
+        <line num="119" type="stmt" count="1"/>
+        <line num="126" type="method" name="unsetDescription" crap="4" count="1"/>
+        <line num="128" type="stmt" count="1"/>
+        <line num="129" type="stmt" count="1"/>
+        <line num="130" type="stmt" count="1"/>
+        <line num="131" type="stmt" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="135" type="stmt" count="1"/>
+        <line num="136" type="stmt" count="1"/>
+        <line num="137" type="stmt" count="1"/>
+        <line num="138" type="stmt" count="1"/>
+        <metrics loc="139" ncloc="88" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="50" elements="57" coveredelements="54"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Ryvalidator.php">
+        <class name="Ryvalidator" namespace="Vol2223\Ryvalidator">
+          <metrics methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="75" coveredstatements="72" elements="83" coveredelements="79"/>
+        </class>
+        <line num="29" type="method" name="__construct" crap="1" count="9"/>
+        <line num="31" type="stmt" count="9"/>
+        <line num="32" type="stmt" count="9"/>
+        <line num="33" type="stmt" count="9"/>
+        <line num="41" type="method" name="validate" crap="9" count="9"/>
+        <line num="43" type="stmt" count="9"/>
+        <line num="44" type="stmt" count="9"/>
+        <line num="45" type="stmt" count="9"/>
+        <line num="46" type="stmt" count="9"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="51" type="stmt" count="1"/>
+        <line num="53" type="stmt" count="9"/>
+        <line num="54" type="stmt" count="9"/>
+        <line num="55" type="stmt" count="9"/>
+        <line num="56" type="stmt" count="9"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="9"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="73" type="method" name="_validate" crap="6" count="9"/>
+        <line num="75" type="stmt" count="9"/>
+        <line num="76" type="stmt" count="9"/>
+        <line num="77" type="stmt" count="2"/>
+        <line num="78" type="stmt" count="1"/>
+        <line num="79" type="stmt" count="8"/>
+        <line num="80" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="1"/>
+        <line num="82" type="stmt" count="7"/>
+        <line num="83" type="stmt" count="4"/>
+        <line num="84" type="stmt" count="1"/>
+        <line num="85" type="stmt" count="4"/>
+        <line num="86" type="stmt" count="2"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="3"/>
+        <line num="89" type="stmt" count="2"/>
+        <line num="90" type="stmt" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="92" type="stmt" count="1"/>
+        <line num="93" type="stmt" count="1"/>
+        <line num="94" type="stmt" count="1"/>
+        <line num="95" type="stmt" count="2"/>
+        <line num="96" type="stmt" count="1"/>
+        <line num="107" type="method" name="stringValidate" crap="2" count="2"/>
+        <line num="109" type="stmt" count="2"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="111" type="stmt" count="1"/>
+        <line num="112" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="126" type="method" name="integerValidate" crap="2" count="2"/>
+        <line num="128" type="stmt" count="2"/>
+        <line num="129" type="stmt" count="1"/>
+        <line num="130" type="stmt" count="1"/>
+        <line num="131" type="stmt" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="145" type="method" name="enumValidate" crap="3" count="4"/>
+        <line num="147" type="stmt" count="4"/>
+        <line num="148" type="stmt" count="2"/>
+        <line num="149" type="stmt" count="2"/>
+        <line num="150" type="stmt" count="2"/>
+        <line num="152" type="stmt" count="2"/>
+        <line num="153" type="stmt" count="1"/>
+        <line num="164" type="method" name="objectValidate" crap="2" count="2"/>
+        <line num="166" type="stmt" count="2"/>
+        <line num="167" type="stmt" count="1"/>
+        <line num="168" type="stmt" count="1"/>
+        <line num="169" type="stmt" count="1"/>
+        <line num="171" type="stmt" count="1"/>
+        <line num="172" type="stmt" count="1"/>
+        <line num="183" type="method" name="arrayValidate" crap="4.43" count="2"/>
+        <line num="185" type="stmt" count="2"/>
+        <line num="186" type="stmt" count="1"/>
+        <line num="187" type="stmt" count="1"/>
+        <line num="188" type="stmt" count="1"/>
+        <line num="191" type="stmt" count="1"/>
+        <line num="192" type="stmt" count="1"/>
+        <line num="193" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="0"/>
+        <line num="195" type="stmt" count="0"/>
+        <line num="197" type="stmt" count="1"/>
+        <metrics loc="198" ncloc="123" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="75" coveredstatements="72" elements="83" coveredelements="79"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/ValidatorType.php">
+        <class name="ValidatorType" namespace="Vol2223\Ryvalidator">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="12" ncloc="2" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="Vol2223\Ryvalidator\Exception">
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/ArrayValidationException.php">
+        <class name="ArrayValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/EnumValidationException.php">
+        <class name="EnumValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/IntegerValidationException.php">
+        <class name="IntegerValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/ObjectValidationException.php">
+        <class name="ObjectValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/StringValidationException.php">
+        <class name="StringValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Exception/ValidationException.php">
+        <class name="ValidationException" namespace="Vol2223\Ryvalidator\Exception">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="5" ncloc="5" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="Vol2223\Ryvalidator\Validation">
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Validation/EnumValidation.php">
+        <class name="EnumValidation" namespace="Vol2223\Ryvalidator\Validation">
+          <metrics methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+        </class>
+        <line num="12" type="method" name="validate" crap="1" count="2"/>
+        <line num="14" type="stmt" count="2"/>
+        <line num="15" type="stmt" count="1"/>
+        <line num="23" type="method" name="enumValidate" crap="2" count="2"/>
+        <line num="25" type="stmt" count="2"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <metrics loc="33" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Validation/IntegerValidation.php">
+        <class name="IntegerValidation" namespace="Vol2223\Ryvalidator\Validation">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="10" type="method" name="validate" crap="1" count="1"/>
+        <line num="12" type="stmt" count="1"/>
+        <metrics loc="13" ncloc="10" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+      <file name="/home/vagrant/repos/php-yaml-validator/src/Validation/StringValidation.php">
+        <class name="StringValidation" namespace="Vol2223\Ryvalidator\Validation">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="10" type="method" name="validate" crap="1" count="1"/>
+        <line num="12" type="stmt" count="1"/>
+        <metrics loc="13" ncloc="10" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+    </package>
+    <file name="/home/vagrant/repos/php-yaml-validator/src/Validation/ValidationInterface.php">
+      <metrics loc="14" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/vagrant/repos/php-yaml-validator/src/bootstrap.php">
+      <line num="2" type="stmt" count="0"/>
+      <metrics loc="2" ncloc="2" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
+    </file>
+    <metrics files="15" loc="539" ncloc="350" classes="13" methods="20" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="156" coveredstatements="150" elements="176" coveredelements="168"/>
+  </project>
+</coverage>

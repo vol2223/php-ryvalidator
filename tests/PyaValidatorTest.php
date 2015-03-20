@@ -1,11 +1,11 @@
 <?php
 
-namespace Vol2223\PyaValidator;
+namespace Vol2223\Ryvalidator;
 
 use \Mockery as M;
 use Vol2223\PayValidator\Exception\ArrayValidationException;
 
-class PyaValidatorTest extends \PHPUnit_Framework_TestCase
+class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 {
 	public function test_validate_Normal()
 	{
@@ -63,12 +63,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 			],
 			'enum' => 'HOGE'
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\EnumValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\EnumValidationException
 	 */
 	public function test_validate_MissMatchEnumList()
 	{
@@ -85,12 +85,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' => 'GEGE'
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:定義外のタイプでした。key=error,type=hogehogehoge
 	 */
 	public function test_validate_MissingType()
@@ -104,12 +104,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'error' => 'GEGE'
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Stringではありません。key=string,value=1
 	 */
 	public function test_validate_StringMissMatchParam()
@@ -123,12 +123,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'string' => 1
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Integerではありません。key=integer,value=hoge
 	 */
 	public function test_validate_IntegerMissMatchParam()
@@ -142,12 +142,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'integer' => 'hoge'
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Enumではありません。key=enum,value=1
 	 */
 	public function test_validate_EnumArrayMissMatchParam()
@@ -165,12 +165,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' =>[1] 
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Enumではありません。key=enum,value=2
 	 */
 	public function test_validate_EnumObjectMissMatchParam()
@@ -190,12 +190,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' => $object
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Objectではありません。key=object,value=2
 	 */
 	public function test_validate_ObjectMissMatchParam()
@@ -214,12 +214,12 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'object' => 2
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 
 	/**
-	 * @expectedException Vol2223\PyaValidator\Exception\ValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 * @expectedExceptionMessage validationのチェック:Arrayではありません。key=array,value=2
 	 */
 	public function test_validate_ArrayMissMatchParam()
@@ -238,7 +238,7 @@ class PyaValidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'array' => 2
 		];
-		$pyaValidator = new PyaValidator($config, $targets);
+		$pyaValidator = new Ryvalidator($config, $targets);
 		$pyaValidator->validate();
 	}
 }
