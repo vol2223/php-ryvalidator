@@ -3,7 +3,7 @@
 
 use Vol2223\Ryvalidator\ContractParser;
 
-$autoloadPaths = [__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'];
+$autoloadPaths = [__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php', __DIR__ . '/../../../autoload.php'];
 foreach ($autoloadPaths as $file) {
 	if (file_exists($file)) {
 		require $file;
