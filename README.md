@@ -12,5 +12,5 @@
 
 例)  
 ```
-./vendor/bin/pyavalidator contract/ user/character.yml
+./vendor/bin/ryvalidator contract/ user/character.yml
 ```
