@@ -7,19 +7,30 @@ use Vol2223\PyaValidator\Context\ContractContext;
 
 class ContractParser
 {
-	const DEFINITIONS_DIRECTORY = 'definitions';
-	const VALIDATIONS_DIRECTORY = 'validations';
-	const INCLUDES_ACCESS_KEY = 'includes';
-	const METHOD_GET = 'get';
-	const METHOD_POST = 'post';
-	const REQUEST_TYPE_REQUEST = 'requests';
-	const REQUEST_TYPE_RESPONSE = 'responses';
+	const DEFINITIONS_DIRECTORY = 'definitions'; // yaml定義ディレクトリ名
+	const VALIDATIONS_DIRECTORY = 'validations'; // バリデーションファイルの格納ディレクトリ名
 
+	const INCLUDES_ACCESS_KEY = 'includes'; // 読み込みファイルのkey名
+	const DESCRIPTION_ACCESS_KEY = 'description'; // 説明のkey名
+	const IS_ACCESS_KEY = 'is'; // 読み込みファイル呼び出しのkey名
+
+	const METHOD_GET = 'get'; // GETメソッド
+	const METHOD_POST = 'post'; // POSTメソッド
+
+	const REQUEST_TYPE_REQUEST = 'requests'; // リクエスト
+	const REQUEST_TYPE_RESPONSE = 'responses'; // レスポンス
+
+	/**
+	 * 扱えるメソッド一覧
+	 */
 	private static $METHODS = [
 		self::METHOD_GET,
 		self::METHOD_POST
 	];
 
+	/**
+	 * 扱えるリクエスト一覧
+	 */
 	private static $REQUESTS = [
 		self::REQUEST_TYPE_REQUEST,
 		self::REQUEST_TYPE_RESPONSE
@@ -36,7 +47,7 @@ class ContractParser
 	}
 
 	/**
-	 * execute parse
+	 * パースの実行
 	 *
 	 * @param string $basePath
 	 * @param string $yamlName
@@ -62,7 +73,7 @@ class ContractParser
 	}
 
 	/**
-	 * loading yaml
+	 * yamlを読み込むみ配列にパースする
 	 * 
 	 * @param string $basePath
 	 * @param string $yamlName
