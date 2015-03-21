@@ -5,9 +5,9 @@ namespace Vol2223\Ryvalidator;
 use Vol2223\Ryvalidator\Context\ValidationPackContext;
 use Vol2223\Ryvalidator\Exception\ArrayValidationException;
 use Vol2223\Ryvalidator\Exception\ValidationException;
-use Vol2223\Ryvalidator\Validation\EnumValidation;
-use Vol2223\Ryvalidator\Validation\IntegerValidation;
-use Vol2223\Ryvalidator\Validation\StringValidation;
+use Vol2223\Ryvalidator\Validation\EnumValidator;
+use Vol2223\Ryvalidator\Validation\IntegerValidator;
+use Vol2223\Ryvalidator\Validation\StringValidator;
 
 class Ryvalidator
 {
@@ -119,7 +119,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Stringではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		$this->validationPackContext->stringValidation()->validate($requirement, $target);
+		$this->validationPackContext->stringValidator()->validate($requirement, $target);
 	}
 
 	/**
@@ -138,7 +138,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Integerではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		$this->validationPackContext->integerValidation()->validate($requirement, $target);
+		$this->validationPackContext->integerValidator()->validate($requirement, $target);
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Enumではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
-		$this->validationPackContext->enumValidation()->validate($requirement, $target);
+		$this->validationPackContext->enumValidator()->validate($requirement, $target);
 	}
 
 	/**

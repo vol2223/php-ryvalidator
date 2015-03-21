@@ -2,63 +2,63 @@
 
 namespace Vol2223\Ryvalidator\Context;
 
-use Vol2223\Ryvalidator\Validation\EnumValidation;
-use Vol2223\Ryvalidator\Validation\IntegerValidation;
-use Vol2223\Ryvalidator\Validation\StringValidation;
+use Vol2223\Ryvalidator\Validation\EnumValidator;
+use Vol2223\Ryvalidator\Validation\IntegerValidator;
+use Vol2223\Ryvalidator\Validation\StringValidator;
 
 class ValidationPackContext
 {
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\EnumValidation
+	 * @var \Vol2223\Ryvalidator\Validation\EnumValidator
 	 */
-	private $enumValidation;
+	private $enumValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\IntegerValidation
+	 * @var \Vol2223\Ryvalidator\Validation\IntegerValidator
 	 */
-	private $integerValidation;
+	private $integerValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\StringValidation
+	 * @var \Vol2223\Ryvalidator\Validation\StringValidator
 	 */
-	private $stringValidation;
+	private $stringValidator;
 
 	/**
-	 * @param \Vol2223\Ryvalidator\Validation\EnumValidation    $enumValidation
-	 * @param \Vol2223\Ryvalidator\Validation\IntegerValidation $integerValidation
-	 * @param \Vol2223\Ryvalidator\Validation\StringValidation  $stringValidation
+	 * @param \Vol2223\Ryvalidator\Validation\EnumValidator    $enumValidator
+	 * @param \Vol2223\Ryvalidator\Validation\IntegerValidator $integerValidator
+	 * @param \Vol2223\Ryvalidator\Validation\StringValidator  $stringValidator
 	 */
 	public function __construct(
-		EnumValidation    $enumValidation = null,
-		IntegerValidation $integerValidation = null,
-		StringValidation  $stringValidation = null
+		EnumValidator    $enumValidator = null,
+		IntegerValidator $integerValidator = null,
+		StringValidator  $stringValidator = null
 	) {
-		$this->enumValidation      = is_null($enumValidation) ? new EnumValidation() : $enumValidation;
-		$this->integerValidation   = is_null($integerValidation) ? new IntegerValidation() : $integerValidation;
-		$this->stringValidation    = is_null($stringValidation) ? new StringValidation() : $stringValidation;
+		$this->enumValidator      = is_null($enumValidator) ? new EnumValidator() : $enumValidator;
+		$this->integerValidator   = is_null($integerValidator) ? new IntegerValidator() : $integerValidator;
+		$this->stringValidator    = is_null($stringValidator) ? new StringValidator() : $stringValidator;
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\EnumValidation
+	 * @return \Vol2223\Ryvalidator\Validation\EnumValidator
 	 */
-	public function enumValidation()
+	public function enumValidator()
 	{
-		return $this->enumValidation;
+		return $this->enumValidator;
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\IntegerValidation
+	 * @return \Vol2223\Ryvalidator\Validation\IntegerValidator
 	 */
-	public function integerValidation()
+	public function integerValidator()
 	{
-		return $this->integerValidation;
+		return $this->integerValidator;
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\StringValidation
+	 * @return \Vol2223\Ryvalidator\Validation\StringValidator
 	 */
-	public function stringValidation()
+	public function stringValidator()
 	{
-		return $this->stringValidation;
+		return $this->stringValidator;
 	}
 }
