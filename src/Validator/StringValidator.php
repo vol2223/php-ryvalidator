@@ -1,8 +1,8 @@
 <?php
 
-namespace Vol2223\Ryvalidator\Validation;
+namespace Vol2223\Ryvalidator\Validator;
 
-class IntegerValidator implements ValidatorInterface
+class StringValidator implements ValidatorInterface
 {
 	/**
 	 * {@inheritdoc}

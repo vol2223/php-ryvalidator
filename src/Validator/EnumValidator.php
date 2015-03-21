@@ -1,6 +1,6 @@
 <?php
 
-namespace Vol2223\Ryvalidator\Validation;
+namespace Vol2223\Ryvalidator\Validator;
 
 use Vol2223\Ryvalidator\Exception\EnumValidationException;
 

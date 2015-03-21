@@ -5,9 +5,9 @@ namespace Vol2223\Ryvalidator;
 use Vol2223\Ryvalidator\Context\ValidationPackContext;
 use Vol2223\Ryvalidator\Exception\ArrayValidationException;
 use Vol2223\Ryvalidator\Exception\ValidationException;
-use Vol2223\Ryvalidator\Validation\EnumValidator;
-use Vol2223\Ryvalidator\Validation\IntegerValidator;
-use Vol2223\Ryvalidator\Validation\StringValidator;
+use Vol2223\Ryvalidator\Validator\EnumValidator;
+use Vol2223\Ryvalidator\Validator\IntegerValidator;
+use Vol2223\Ryvalidator\Validator\StringValidator;
 
 class Ryvalidator
 {

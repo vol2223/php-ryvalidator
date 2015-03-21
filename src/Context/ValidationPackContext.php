@@ -2,31 +2,31 @@
 
 namespace Vol2223\Ryvalidator\Context;
 
-use Vol2223\Ryvalidator\Validation\EnumValidator;
-use Vol2223\Ryvalidator\Validation\IntegerValidator;
-use Vol2223\Ryvalidator\Validation\StringValidator;
+use Vol2223\Ryvalidator\Validator\EnumValidator;
+use Vol2223\Ryvalidator\Validator\IntegerValidator;
+use Vol2223\Ryvalidator\Validator\StringValidator;
 
 class ValidationPackContext
 {
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\EnumValidator
+	 * @var \Vol2223\Ryvalidator\Validator\EnumValidator
 	 */
 	private $enumValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\IntegerValidator
+	 * @var \Vol2223\Ryvalidator\Validator\IntegerValidator
 	 */
 	private $integerValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validation\StringValidator
+	 * @var \Vol2223\Ryvalidator\Validator\StringValidator
 	 */
 	private $stringValidator;
 
 	/**
-	 * @param \Vol2223\Ryvalidator\Validation\EnumValidator    $enumValidator
-	 * @param \Vol2223\Ryvalidator\Validation\IntegerValidator $integerValidator
-	 * @param \Vol2223\Ryvalidator\Validation\StringValidator  $stringValidator
+	 * @param \Vol2223\Ryvalidator\Validator\EnumValidator    $enumValidator
+	 * @param \Vol2223\Ryvalidator\Validator\IntegerValidator $integerValidator
+	 * @param \Vol2223\Ryvalidator\Validator\StringValidator  $stringValidator
 	 */
 	public function __construct(
 		EnumValidator    $enumValidator = null,
@@ -39,7 +39,7 @@ class ValidationPackContext
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\EnumValidator
+	 * @return \Vol2223\Ryvalidator\Validator\EnumValidator
 	 */
 	public function enumValidator()
 	{
@@ -47,7 +47,7 @@ class ValidationPackContext
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\IntegerValidator
+	 * @return \Vol2223\Ryvalidator\Validator\IntegerValidator
 	 */
 	public function integerValidator()
 	{
@@ -55,7 +55,7 @@ class ValidationPackContext
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validation\StringValidator
+	 * @return \Vol2223\Ryvalidator\Validator\StringValidator
 	 */
 	public function stringValidator()
 	{

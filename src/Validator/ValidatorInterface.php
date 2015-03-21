@@ -1,6 +1,6 @@
 <?php
 
-namespace Vol2223\Ryvalidator\Validation;
+namespace Vol2223\Ryvalidator\Validator;
 
 interface ValidatorInterface
 {
