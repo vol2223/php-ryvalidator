@@ -9,7 +9,7 @@ class EnumValidation implements ValidationInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public static function validate($requirement, $target)
+	public function validate($requirement, $target)
 	{
 		static::enumValidate($requirement['enum'], $target);
 	}

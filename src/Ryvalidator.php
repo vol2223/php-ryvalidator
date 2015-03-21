@@ -2,11 +2,12 @@
 
 namespace Vol2223\Ryvalidator;
 
-use Vol2223\Ryvalidator\Exception\ValidationException;
+use Vol2223\Ryvalidator\Context\ValidationPackContext;
 use Vol2223\Ryvalidator\Exception\ArrayValidationException;
+use Vol2223\Ryvalidator\Exception\ValidationException;
+use Vol2223\Ryvalidator\Validation\EnumValidation;
 use Vol2223\Ryvalidator\Validation\IntegerValidation;
 use Vol2223\Ryvalidator\Validation\StringValidation;
-use Vol2223\Ryvalidator\Validation\EnumValidation;
 
 class Ryvalidator
 {
@@ -21,15 +22,22 @@ class Ryvalidator
 	private $targets;
 
 	/**
+	 * @var \Vol2223\Ryvalidator\Context\ValidationPackContext
+	 */
+	private $validationPackContext;
+
+	/**
 	 * バリデータの情報を配列で渡す
 	 *
 	 * @param [] $config バリデーションの定義情報
 	 * @param [] $targets バリデーションを行う対象の配列
+	 * @param \Vol2223\Ryvalidator\Context\ValidationPackContext|null $validationPackContext
 	 */
-	public function __construct(Array $config, Array $targets)
+	public function __construct(Array $config, Array $targets, ValidationPackContext $validationPackContext = null)
 	{
 		$this->config = $config;
 		$this->targets = $targets;
+		$this->validationPackContext = is_null($validationPackContext) ? new ValidationPackContext() : $validationPackContext;
 	}
 
 	/**
@@ -111,7 +119,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Stringではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		StringValidation::validate($requirement, $target);
+		$this->validationPackContext->stringValidation()->validate($requirement, $target);
 	}
 
 	/**
@@ -130,7 +138,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Integerではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		IntegerValidation::validate($requirement, $target);
+		$this->validationPackContext->integerValidation()->validate($requirement, $target);
 	}
 
 	/**
@@ -149,7 +157,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Enumではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
-		EnumValidation::validate($requirement, $target);
+		$this->validationPackContext->enumValidation()->validate($requirement, $target);
 	}
 
 	/**

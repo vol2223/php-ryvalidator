@@ -10,5 +10,5 @@ interface ValidationInterface
 	 * @param [] $requirement
 	 * @param mixed $target
 	 */
-	public static function validate($requirement, $target);
+	public function validate($requirement, $target);
 }
