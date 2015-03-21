@@ -11,7 +11,7 @@ class EnumValidator implements ValidatorInterface
 	 */
 	public function validate($requirement, $target)
 	{
-		static::enumValidate($requirement['enum'], $target);
+		static::enumValidate($requirement, $target);
 	}
 
 	/**
@@ -22,6 +22,7 @@ class EnumValidator implements ValidatorInterface
 	 */
 	private static function enumValidate($enumList, $target)
 	{
+		$enumList = $enumList['enum'];
 		if (!in_array($target, $enumList)) {
 			throw new EnumValidationException(sprintf(
 				'Enumのリストに無いものをでした enumList=%s : actual=%s',

@@ -2,7 +2,7 @@
   "name": "vol2223/ryvalidator",
   "description": "validator to use yaml that can be used in php",
   "license": "MIT",
-  "require-dev": {
+  "require": {
     "symfony/yaml": "~2.7"
   },
   "require-dev": {
