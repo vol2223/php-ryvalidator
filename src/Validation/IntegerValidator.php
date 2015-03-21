@@ -2,7 +2,7 @@
 
 namespace Vol2223\Ryvalidator\Validation;
 
-class IntegerValidator implements ValidationInterface
+class IntegerValidator implements ValidatorInterface
 {
 	/**
 	 * {@inheritdoc}

@@ -2,7 +2,7 @@
 
 namespace Vol2223\Ryvalidator\Validation;
 
-interface ValidationInterface
+interface ValidatorInterface
 {
 	/**
 	 * バリデーションを実行する

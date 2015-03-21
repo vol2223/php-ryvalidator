@@ -4,7 +4,7 @@ namespace Vol2223\Ryvalidator\Validation;
 
 use Vol2223\Ryvalidator\Exception\EnumValidationException;
 
-class EnumValidator implements ValidationInterface
+class EnumValidator implements ValidatorInterface
 {
 	/**
 	 * {@inheritdoc}
