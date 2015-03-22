@@ -3,6 +3,9 @@
 namespace Vol2223\Ryvalidator;
 
 use \Mockery as M;
+use Vol2223\Ryvalidator\Context\ValidationPackContext;
+use Vol2223\LightValidator\LightValidator;
+use Vol2223\LightValidator\Validation\EnumValidation;
 
 class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -84,7 +87,12 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' => 'GEGE'
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
+		$validationPackContext = new ValidationPackContext(
+			null,
+			null,
+			new LightValidator(new EnumValidation())
+		);
+		$pyaValidator = new Ryvalidator($config, $targets, $validationPackContext);
 		$pyaValidator->validate();
 	}
 

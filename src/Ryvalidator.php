@@ -44,6 +44,7 @@ class Ryvalidator
 	 *
 	 * @param [] $config 特に指定がなければコンストラクタで定義したものを使う
 	 * @param [] $target 特に指定がなければコンストラクタで定義したものを使う
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException;
 	 */
 	public function validate($config = [], $targets = [])
 	{
@@ -117,7 +118,8 @@ class Ryvalidator
 				sprintf('validationのチェック:Stringではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		$this->validationPackContext->stringValidator()->validate($requirement, $target);
+		$this->validationPackContext->stringValidator()->validate($target, $requirement);
+		$this->error($this->validationPackContext->stringValidator());
 	}
 
 	/**
@@ -135,7 +137,8 @@ class Ryvalidator
 				sprintf('validationのチェック:Integerではありません。key=%s,value=%s',$logKey, $target)
 			);
 		}
-		$this->validationPackContext->integerValidator()->validate($requirement, $target);
+		$this->validationPackContext->integerValidator()->validate($target, $requirement);
+		$this->error($this->validationPackContext->integerValidator());
 	}
 
 	/**
@@ -153,7 +156,8 @@ class Ryvalidator
 				sprintf('validationのチェック:Enumではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
-		$this->validationPackContext->enumValidator()->validate($requirement, $target);
+		$this->validationPackContext->enumValidator()->validate($target, $requirement);
+		$this->error($this->validationPackContext->enumValidator());
 	}
 
 	/**
@@ -195,6 +199,18 @@ class Ryvalidator
 			throw ValidationException($e->getMessage());
 		} catch (\Exception $e) {
 			throw $e;
+		}
+	}
+
+	/**
+	 * エラーがあれば例外を投げる
+	 *
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
+	 */
+	private function error($validator)
+	{
+		if ($validator->isError()) {
+			throw new ValidationException(implode(',', $validator->messages()));
 		}
 	}
 }

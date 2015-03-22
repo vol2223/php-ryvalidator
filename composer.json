@@ -3,7 +3,8 @@
   "description": "validator to use yaml that can be used in php",
   "license": "MIT",
   "require": {
-    "symfony/yaml": "~2.7"
+    "vol2223/light-pvalidator": "dev-master",
+    "symfony/yaml": "~2.0"
   },
   "require-dev": {
     "satooshi/php-coveralls": "dev-master",

@@ -2,44 +2,42 @@
 
 namespace Vol2223\Ryvalidator\Context;
 
-use Vol2223\Ryvalidator\Validator\EnumValidator;
-use Vol2223\Ryvalidator\Validator\IntegerValidator;
-use Vol2223\Ryvalidator\Validator\StringValidator;
+use Vol2223\LightValidator\LightValidator;
 
 class ValidationPackContext
 {
 	/**
-	 * @var \Vol2223\Ryvalidator\Validator\EnumValidator
+	 * @var \Vol2223\LightValidator\LightValidator
 	 */
 	private $enumValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validator\IntegerValidator
+	 * @var \Vol2223\LightValidator\LightValidator
 	 */
 	private $integerValidator;
 
 	/**
-	 * @var \Vol2223\Ryvalidator\Validator\StringValidator
+	 * @var \Vol2223\LightValidator\LightValidator
 	 */
 	private $stringValidator;
 
 	/**
-	 * @param \Vol2223\Ryvalidator\Validator\EnumValidator    $enumValidator
-	 * @param \Vol2223\Ryvalidator\Validator\IntegerValidator $integerValidator
-	 * @param \Vol2223\Ryvalidator\Validator\StringValidator  $stringValidator
+	 * @param \Vol2223\LightValidator\LightValidator $integerValidator
+	 * @param \Vol2223\LightValidator\LightValidator $stringValidator
+	 * @param \Vol2223\LightValidator\LightValidator $enumValidator
 	 */
 	public function __construct(
-		EnumValidator    $enumValidator = null,
-		IntegerValidator $integerValidator = null,
-		StringValidator  $stringValidator = null
+		LightValidator $integerValidator = null,
+		LightValidator $stringValidator = null,
+		LightValidator $enumValidator = null
 	) {
-		$this->enumValidator      = is_null($enumValidator) ? new EnumValidator() : $enumValidator;
-		$this->integerValidator   = is_null($integerValidator) ? new IntegerValidator() : $integerValidator;
-		$this->stringValidator    = is_null($stringValidator) ? new StringValidator() : $stringValidator;
+		$this->integerValidator   = is_null($integerValidator) ? new LightValidator() : $integerValidator;
+		$this->stringValidator    = is_null($stringValidator) ? new LightValidator() : $stringValidator;
+		$this->enumValidator      = is_null($enumValidator) ? new LightValidator() : $enumValidator;
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validator\EnumValidator
+	 * @return \Vol2223\LightValidator\LightValidator
 	 */
 	public function enumValidator()
 	{
@@ -47,7 +45,7 @@ class ValidationPackContext
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validator\IntegerValidator
+	 * @return \Vol2223\LightValidator\LightValidator
 	 */
 	public function integerValidator()
 	{
@@ -55,7 +53,7 @@ class ValidationPackContext
 	}
 
 	/**
-	 * @return \Vol2223\Ryvalidator\Validator\StringValidator
+	 * @return \Vol2223\LightValidator\LightValidator
 	 */
 	public function stringValidator()
 	{
