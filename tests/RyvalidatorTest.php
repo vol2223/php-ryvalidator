@@ -3,7 +3,6 @@
 namespace Vol2223\Ryvalidator;
 
 use \Mockery as M;
-use Vol2223\PayValidator\Exception\ArrayValidationException;
 
 class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -68,7 +67,7 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException Vol2223\Ryvalidator\Exception\EnumValidationException
+	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	public function test_validate_MissMatchEnumList()
 	{

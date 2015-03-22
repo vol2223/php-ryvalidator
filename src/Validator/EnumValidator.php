@@ -2,7 +2,7 @@
 
 namespace Vol2223\Ryvalidator\Validator;
 
-use Vol2223\Ryvalidator\Exception\EnumValidationException;
+use Vol2223\Ryvalidator\Exception\ValidationException;
 
 class EnumValidator implements ValidatorInterface
 {
@@ -24,7 +24,7 @@ class EnumValidator implements ValidatorInterface
 	{
 		$enumList = $enumList['enum'];
 		if (!in_array($target, $enumList)) {
-			throw new EnumValidationException(sprintf(
+			throw new ValidationException(sprintf(
 				'Enumのリストに無いものをでした enumList=%s : actual=%s',
 				implode(',', $enumList),
 				$target

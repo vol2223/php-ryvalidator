@@ -3,7 +3,6 @@
 namespace Vol2223\Ryvalidator;
 
 use Vol2223\Ryvalidator\Context\ValidationPackContext;
-use Vol2223\Ryvalidator\Exception\ArrayValidationException;
 use Vol2223\Ryvalidator\Exception\ValidationException;
 use Vol2223\Ryvalidator\Validator\EnumValidator;
 use Vol2223\Ryvalidator\Validator\IntegerValidator;
@@ -76,7 +75,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException;
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException;
 	 */
 	private function _validate($requirement, $target, $logKey)
 	{
@@ -109,8 +108,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\StringValidationException
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	private function stringValidate($requirement, $target, $logKey)
 	{
@@ -128,8 +126,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\IntegerValidationException
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	private function integerValidate($requirement, $target, $logKey)
 	{
@@ -147,8 +144,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\IntegerValidationException
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	private function enumValidate($requirement, $target, $logKey)
 	{
@@ -166,8 +162,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\ObjectValidationException
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	private function objectValidate($requirement, $target, $logKey)
 	{
@@ -185,8 +180,7 @@ class Ryvalidator
 	 * @param [] $requirement
 	 * @param [] $target
 	 * @param string $logKey ログ用のキー
-	 * @throws \Vol2223\PayValidator\Exception\ArrayValidationException
-	 * @throws \Vol2223\PayValidator\Exception\ValidationException
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
 	private function arrayValidate($requirements, $targets, $logKey)
 	{
@@ -198,7 +192,7 @@ class Ryvalidator
 		try {
 			$this->validate($requirements['items'], $targets);
 		} catch (ValidationException $e) {
-			throw ArrayValidationException($e->getMessage());
+			throw ValidationException($e->getMessage());
 		} catch (\Exception $e) {
 			throw $e;
 		}
