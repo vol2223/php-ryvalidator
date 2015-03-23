@@ -88,7 +88,7 @@ class Ryvalidator
 			$this->enumValidate($requirement, $target, $logKey);
 			break;
 		case ValidatorType::VALIDATOR_TYPE_OBJECT:
-			$this->objectValidate($requirement, $target, $logKey);
+			$this->hashValidate($requirement, $target, $logKey);
 			break;
 		case ValidatorType::VALIDATOR_TYPE_ARRAY:
 			$this->arrayValidate($requirement, $target, $logKey);
@@ -165,9 +165,9 @@ class Ryvalidator
 	 * @param string $logKey ログ用のキー
 	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
 	 */
-	private function objectValidate($requirement, $target, $logKey)
+	private function hashValidate($requirement, $target, $logKey)
 	{
-		if (!is_object($target)) {
+		if (!$this->isHash($target)) {
 			throw new ValidationException(
 				sprintf('validationのチェック:Objectではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
@@ -209,5 +209,14 @@ class Ryvalidator
 		if ($validator->isError()) {
 			throw new ValidationException(implode(',', $validator->messages()));
 		}
+	}
+
+	public function isHash($target)
+	{
+		$i = 0;
+		foreach($target as $key => $value) {
+			if ($key !== $i++) return true;
+		}
+		return false;
 	}
 }

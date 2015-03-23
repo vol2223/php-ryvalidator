@@ -54,12 +54,10 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 				'required' => false
 			]
 		];
-		$object = new \stdClass;
-		$object->huga = 'foga';
 		$targets = [
 			'string' => 'abc',
 			'integer' => 123,
-			'object' => $object,
+			'object' => ['huga' => 'foga'],
 			'array' => [
 				1,2,3
 			],
@@ -196,30 +194,6 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$object->hoge = 2;
 		$targets = [
 			'enum' => $object
-		];
-		$pyaValidator = new Ryvalidator($config);
-		$pyaValidator->validate($targets);
-	}
-
-	/**
-	 * @expectedException Vol2223\Ryvalidator\Exception\ValidationException
-	 * @expectedExceptionMessage validationのチェック:Objectではありません。key=object,value=2
-	 */
-	public function test_validate_ObjectMissMatchParam()
-	{
-		$config = [
-			'object' =>
-			[
-				'type' => 'object',
-				'properties' => [
-					'hoge' => [
-						'type' => 'integer'
-					]
-				]
-			],
-		];
-		$targets = [
-			'object' => 2
 		];
 		$pyaValidator = new Ryvalidator($config);
 		$pyaValidator->validate($targets);
