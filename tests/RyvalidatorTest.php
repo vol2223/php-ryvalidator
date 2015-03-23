@@ -65,8 +65,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 			],
 			'enum' => 'HOGE'
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -92,8 +92,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 			null,
 			new LightValidator(new EnumValidation())
 		);
-		$pyaValidator = new Ryvalidator($config, $targets, $validationPackContext);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config, $validationPackContext);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -111,8 +111,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'error' => 'GEGE'
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -130,8 +130,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'string' => 1
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -149,8 +149,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'integer' => 'hoge'
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -172,8 +172,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' =>[1] 
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -197,8 +197,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'enum' => $object
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -221,8 +221,8 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'object' => 2
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 
 	/**
@@ -245,7 +245,7 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'array' => 2
 		];
-		$pyaValidator = new Ryvalidator($config, $targets);
-		$pyaValidator->validate();
+		$pyaValidator = new Ryvalidator($config);
+		$pyaValidator->validate($targets);
 	}
 }

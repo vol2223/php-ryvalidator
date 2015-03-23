@@ -29,27 +29,24 @@ class Ryvalidator
 	 * バリデータの情報を配列で渡す
 	 *
 	 * @param [] $config バリデーションの定義情報
-	 * @param [] $targets バリデーションを行う対象の配列
 	 * @param \Vol2223\Ryvalidator\Context\ValidationPackContext|null $validationPackContext
 	 */
-	public function __construct(Array $config, Array $targets, ValidationPackContext $validationPackContext = null)
+	public function __construct(Array $config, ValidationPackContext $validationPackContext = null)
 	{
 		$this->config = $config;
-		$this->targets = $targets;
 		$this->validationPackContext = is_null($validationPackContext) ? new ValidationPackContext() : $validationPackContext;
 	}
 
 	/**
 	 * バリデーションを実行
 	 *
+	 * @param [] $target
 	 * @param [] $config 特に指定がなければコンストラクタで定義したものを使う
-	 * @param [] $target 特に指定がなければコンストラクタで定義したものを使う
 	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException;
 	 */
-	public function validate($config = [], $targets = [])
+	public function validate($targets, $config = [])
 	{
 		$config = !empty($config) ? $config : $this->config;
-		$targets = !empty($targets) ? $targets : $this->targets;
 		foreach ($config as $key => $requirement) {
 			if (0 === $key) {
 				// keyが0の時は配列を想定しているため例外的な処理
@@ -175,7 +172,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Objectではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
 			);
 		}
-		$this->validate($requirement['properties'], (array)$target);
+		$this->validate((array)$target, $requirement['properties']);
 	}
 
 	/**
@@ -194,7 +191,7 @@ class Ryvalidator
 			);
 		}
 		try {
-			$this->validate($requirements['items'], $targets);
+			$this->validate($targets, $requirements['items']);
 		} catch (ValidationException $e) {
 			throw ValidationException($e->getMessage());
 		} catch (\Exception $e) {
