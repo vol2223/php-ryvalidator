@@ -1,7 +1,7 @@
 # php-yaml-validator
 
-[![Build Status](https://travis-ci.org/vol2223/php-yaml-validator.svg)](https://travis-ci.org/vol2223/php-yaml-validator)
-[![Coverage Status](https://coveralls.io/repos/vol2223/php-yaml-validator/badge.svg?branch=master)](https://coveralls.io/r/vol2223/php-yaml-validator?branch=master)
+[![Build Status](https://travis-ci.org/vol2223/php-ryvalidator.svg?branch=master)](https://travis-ci.org/vol2223/php-ryvalidator)
+[![Coverage Status](https://coveralls.io/repos/vol2223/php-ryvalidator/badge.svg)](https://coveralls.io/r/vol2223/php-ryvalidator)
 
 # How To Use
 
