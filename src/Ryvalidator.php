@@ -197,7 +197,9 @@ class Ryvalidator
 				sprintf('validationのチェック:Arrayではありません。key=%s,value=%s',$logKey, implode(',', (array)$targets))
 			);
 		}
-		$this->_validate($requirements['items'], $targets, $logKey);
+		foreach ($targets as $target) {
+			$this->_validate($requirements['items'], $target, $logKey);
+		}
 	}
 
 	/**

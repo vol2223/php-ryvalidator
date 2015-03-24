@@ -35,8 +35,18 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 			[
 				'type' => 'array',
 				'items' => [
-					0 => [
-						'type' => 'integer'
+					'type' => 'integer'
+				]
+			],
+			'arrayObject' =>
+			[
+				'type' => 'array',
+				'items' => [
+					'type' => 'object',
+					'properties' => [
+						'hoge' => [
+							'type' => 'integer'
+						]
 					]
 				]
 			],
@@ -60,6 +70,9 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 			'object' => ['huga' => 'foga'],
 			'array' => [
 				1,2,3
+			],
+			'arrayObject' => [
+				['hoge' => 1, 'hoge' => 100]
 			],
 			'enum' => 'HOGE'
 		];
