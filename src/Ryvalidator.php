@@ -168,11 +168,18 @@ class Ryvalidator
 	private function hashValidate($requirement, $target, $logKey)
 	{
 		if (!$this->isHash($target)) {
-			throw new ValidationException(
-				sprintf('validationのチェック:Objectではありません。key=%s,value=%s',$logKey, implode(',', (array)$target))
-			);
+			foreach ($target as $targetHash) {
+				if (!$this->isHash($targetHash)) {
+					throw new ValidationException(sprintf('validationのチェック:Objectではありません。key=%s,value=%s',
+						$logKey,
+						implode(',', (array)$targetHash)
+					));
+				}
+				$this->validate((array)$targetHash, $requirement['properties']);
+			}
+		} else {
+			$this->validate((array)$target, $requirement['properties']);
 		}
-		$this->validate((array)$target, $requirement['properties']);
 	}
 
 	/**
@@ -190,13 +197,7 @@ class Ryvalidator
 				sprintf('validationのチェック:Arrayではありません。key=%s,value=%s',$logKey, implode(',', (array)$targets))
 			);
 		}
-		try {
-			$this->validate($targets, $requirements['items']);
-		} catch (ValidationException $e) {
-			throw ValidationException($e->getMessage());
-		} catch (\Exception $e) {
-			throw $e;
-		}
+		$this->_validate($requirements['items'], $targets, $logKey);
 	}
 
 	/**
