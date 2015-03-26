@@ -8,10 +8,10 @@ class ContractParserTest extends \PHPUnit_Framework_TestCase
 	{
 		$contractParser = new ContractParser();
 		$expected = $contractParser->parse('test', __DIR__ . '/contract', 'test.yml');
-		$this->assertEquals($expected[0]->filePath(), 'validations/test/access1/post/requests.php');
-		$this->assertEquals($expected[1]->filePath(), 'validations/test/access1/post/responses.php');
-		$this->assertEquals($expected[2]->filePath(), 'validations/test/access2/post/requests.php');
-		$this->assertEquals($expected[3]->filePath(), 'validations/test/access2/post/responses.php');
+		$this->assertEquals($expected[0]->filePath(), 'validations/test/access1/POST/requests.php');
+		$this->assertEquals($expected[1]->filePath(), 'validations/test/access1/POST/responses.php');
+		$this->assertEquals($expected[2]->filePath(), 'validations/test/access2/POST/requests.php');
+		$this->assertEquals($expected[3]->filePath(), 'validations/test/access2/POST/responses.php');
 		$actual['request1'] = [
 			'type' => 'integer',
 			'required' => false
