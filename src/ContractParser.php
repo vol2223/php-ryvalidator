@@ -65,7 +65,7 @@ class ContractParser
 					if (!in_array($requestType, static::$REQUESTS)) {
 						continue;
 					}
-					$contracts[] = new ContractContext($fileName, $action, $methodType, $requestType, $request);
+					$contracts[] = new ContractContext($fileName, $action, strtoupper($methodType), $requestType, $request);
 				}
 			}
 		}
