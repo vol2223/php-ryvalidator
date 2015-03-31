@@ -93,6 +93,9 @@ class Ryvalidator
 		case ValidatorType::VALIDATOR_TYPE_ARRAY:
 			$this->arrayValidate($requirement, $target, $logKey);
 			break;
+		case ValidatorType::VALIDATOR_TYPE_BOOLEAN:
+			$this->booleanValidate($requirement, $target, $logKey);
+			break;
 		default:
 			throw new ValidationException(
 				sprintf('validationのチェック:定義外のタイプでした。key=%s,type=%s',$logKey, $requirement['type'])
@@ -117,6 +120,23 @@ class Ryvalidator
 		}
 		$this->validationPackContext->stringValidator()->validate($target, $requirement);
 		$this->error($this->validationPackContext->stringValidator());
+	}
+
+	/**
+	 * booleanのバリデーション
+	 *
+	 * @param [] $requirement
+	 * @param [] $target
+	 * @param string $logKey ログ用のキー
+	 * @throws \Vol2223\Ryvalidator\Exception\ValidationException
+	 */
+	private function booleanValidate($requirement, $target, $logKey)
+	{
+		if (!is_bool($target)) {
+			throw new ValidationException(
+				sprintf('validationのチェック:Booleanではありません。key=%s,value=%s',$logKey, $target)
+			);
+		}
 	}
 
 	/**

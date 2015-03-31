@@ -22,6 +22,10 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 			[
 				'type' => 'integer',
 			],
+			'boolean' =>
+			[
+				'type' => 'boolean',
+			],
 			'object' =>
 			[
 				'type' => 'object',
@@ -67,6 +71,7 @@ class RyvalidatorTest extends \PHPUnit_Framework_TestCase
 		$targets = [
 			'string' => 'abc',
 			'integer' => 123,
+			'boolean' => true,
 			'object' => ['huga' => 'foga'],
 			'array' => [
 				1,2,3

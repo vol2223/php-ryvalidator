@@ -9,4 +9,5 @@ class ValidatorType
 	const VALIDATOR_TYPE_OBJECT  = 'object';  // バリデーター Object
 	const VALIDATOR_TYPE_ARRAY   = 'array';   // バリデーター Array
 	const VALIDATOR_TYPE_ENUM    = 'enum';    // バリデーター Enum
+	const VALIDATOR_TYPE_BOOLEAN = 'boolean'; // バリデーター Boolean
 }
