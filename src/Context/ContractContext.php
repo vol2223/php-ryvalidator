@@ -38,13 +38,17 @@ class ContractContext
 	 * @param string $requestType
 	 * @param [] $responses
 	 */
-	public function __construct($baseRequestName, $action, $methodType, $requestType, Array $requests)
+	public function __construct($baseRequestName, $action, $methodType, $requestType, Array $requests = null)
 	{
 		$this->baseRequestName = $baseRequestName;
 		$this->action = $action;
 		$this->methodType = $methodType;
 		$this->requestType = $requestType;
-		$this->requests = $requests;
+		if (is_null($requests)) {
+			$this->requests = [];
+		} else {
+			$this->requests = $requests;
+		}
 	}
 
 	/**
