@@ -149,7 +149,7 @@ class Ryvalidator
 	 */
 	private function integerValidate($requirement, $target, $logKey)
 	{
-		if (!is_int($target)) {
+		if (!is_numeric($target)) {
 			throw new ValidationException(
 				sprintf('validationのチェック:Integerではありません。key=%s,value=%s',$logKey, $target)
 			);
