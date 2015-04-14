@@ -10,6 +10,12 @@ use Vol2223\Ryvalidator\Validator\StringValidator;
 
 class Ryvalidator
 {
+	private static $BOOL_STRING_LIST = [
+		'true',
+		'TRUE',
+		'false',
+		'FALSE',
+	];
 	/**
 	 * @var [] バリデーション設定の配列
 	 */
@@ -132,7 +138,7 @@ class Ryvalidator
 	 */
 	private function booleanValidate($requirement, $target, $logKey)
 	{
-		if (!is_bool($target)) {
+		if (!is_bool($target) and !in_array($target, self::$BOOL_STRING_LIST, true)) {
 			throw new ValidationException(
 				sprintf('validationのチェック:Booleanではありません。key=%s,value=%s',$logKey, $target)
 			);
