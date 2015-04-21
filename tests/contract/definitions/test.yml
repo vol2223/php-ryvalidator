@@ -12,6 +12,7 @@ access1:
     responses:
       responses1:
         is: test
+        required: false
 
 access2:
   post:

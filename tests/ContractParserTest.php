@@ -27,6 +27,7 @@ PHP
 		unset($actual);
 
 		$actual['responses1'] = [
+			'required' => false,
 			'type' => 'integer'
 		];
 		$actual = $prefix . var_export($actual, true) . ';';

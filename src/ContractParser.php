@@ -109,7 +109,10 @@ class ContractParser
 	{
 		$isKey = array_key_exists('is', $targetIterator);
 		if ($isKey) {
-			$ancestor[$keyOfParent] = $this->includes[$targetIterator['is']];
+			foreach ($this->includes[$targetIterator['is']] as $key => $value) {
+				$ancestor[$keyOfParent][$key] = $value;
+			}
+			unset($ancestor[$keyOfParent]['is']);
 		}
 		foreach(array_keys($targetIterator) as $i){
 			if(is_array($targetIterator[$i])) {
